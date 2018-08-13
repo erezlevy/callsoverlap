@@ -8,7 +8,7 @@ public class OverlapProcessingServiceImpl implements OverlapProcessingService {
     private Set<Long> set;
     private Long max; //max overlap
     private String overlapTimeFrame;
-    private Long checkRun = 0L;
+//    private Long checkRun = 0L;
 
 
     public OverlapProcessingServiceImpl(Set<Long> set) {
@@ -25,7 +25,7 @@ public class OverlapProcessingServiceImpl implements OverlapProcessingService {
         max = 0L;
         overlapTimeFrame = null;
         stream.forEach(s -> {
-            checkRun++;
+//            checkRun++;
             String[] split = s.split("-");
             Long value = Long.valueOf(split[1]);
             set.add(value);
@@ -38,9 +38,9 @@ public class OverlapProcessingServiceImpl implements OverlapProcessingService {
                 }
                 max = Math.max(counter.get(), max);
             }
-            if(checkRun % 10_000 == 0){
-                System.out.println("passed :" + checkRun);
-            }
+//            if(checkRun % 10_000 == 0){
+//                System.out.println("passed :" + checkRun);
+//            }
         });
         return overlapTimeFrame;
     }
